@@ -5,6 +5,8 @@ package _01_Custom_ArrayList;
 public class ArrayList <T>{
 	
 	public ArrayList() {
+		
+		
 	}
 	
 	public T get(int loc) throws IndexOutOfBoundsException {
@@ -31,5 +33,10 @@ public class ArrayList <T>{
 	public boolean contains(T val) {
 		
 		return false;
+	}
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
