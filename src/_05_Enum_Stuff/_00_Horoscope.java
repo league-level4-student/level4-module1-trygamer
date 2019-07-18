@@ -21,6 +21,7 @@ public void Horos(Zodiac z) {
 	// Notice that 'DataTypes.' is not requires when accessing categories
 	case ARIES :{
 		System.out.println("INT");
+		JOptionPane.
 		break;
 	}
 	case TAURUS:{
@@ -68,7 +69,7 @@ public void Horos(Zodiac z) {
 		System.out.println("BYTE");
 		break;
 	}
-	
+	//https://github.com/League-Level1-Student/level1-module0-trygamer/blob/master/src/DrumKit.java
 	
 	
 	
