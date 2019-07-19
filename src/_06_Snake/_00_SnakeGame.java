@@ -196,13 +196,26 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//1. update the snake
-
+snake.update();
+		
 		//2. if the snake is colliding with its own body 
 		//   or if the snake is out of bounds, call gameOver
+
+if(snake.isHeadCollidingWithBody()) {
+	gameOver();
+}
+if(snake.isOutOfBounds()) {
+	gameOver();
+}
 
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
 
+if(snake.getHeadLocation()==foodLocation) {
+	snake.feed();
+}
 		//4. call panel.repaint();
+panel.repaint();
+
 	}
 }
