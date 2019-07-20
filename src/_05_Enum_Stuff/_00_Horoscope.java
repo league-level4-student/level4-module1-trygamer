@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import _04_Intro_To_Enums.IntroToEnums.DataTypes;
+
 public class _00_Horoscope {
 	// 1. Create an enum in a separate file called Zodiac that contains a category for
 	//    all 12 zodiac signs.
@@ -29,80 +31,155 @@ JLabel drumLabelWithImage;
 
 	
 
-public void Horos(Zodiac z) {
+public void Horos(Zodiac z) throws MalformedURLException {
 	
 	//They can also be used in a switch statement
 	switch(z) {
 	// Notice that 'DataTypes.' is not requires when accessing categories
 	case ARIES :{
-		System.out.println("INT");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("gemini.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		
 		break;
 	}
 	case TAURUS:{
-		System.out.println("DOUBLE");
-		break;
-	}
-	case GEMINI:{
-		System.out.println("BOOLEAN");
 		JFrame f = new JFrame();
-
-		
-
 		f.setVisible(true);
-
-		
-
 		f.setSize(500, 500);
-		
 		JPanel p = new JPanel();
-		
 		drumLabelWithImage = createLabelImage("gemini.jpg");
-		
-		
 		p.add(drumLabelWithImage);
 		p.add(drum);
 		f.pack();
-		
-
+		f.add(p);
+		break;
+	}
+	case GEMINI:{
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("gemini.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
 		f.add(p);
 		break;
 	}
 	case CANCER:{
-		System.out.println("LONG");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("gemini.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		break;
 	}
 	case LEO:{
-		System.out.println("SHORT");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("leo.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		break;
 	}
 	case VIRGO:{
-		System.out.println("BYTE");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("gemini.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		break;
 	}
 	
 	case LIBRA:{
-		System.out.println("BYTE");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("libra.png");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		break;
 	}
 	case SCORPIO:{
-		System.out.println("BYTE");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("scorpio.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		break;
 	}
 	case SAGITTARIUS:{
-		System.out.println("BYTE");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("sagittarius.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		break;
 	}
 	case CAPRICORN:{
-		System.out.println("BYTE");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("download-2.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		break;
 	}
 	case AQUARIUS:{
-		System.out.println("BYTE");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("gemini.jpg");
+		p.add(drumLabelWithImage);
+		p.add(drum);
+		f.pack();
+		f.add(p);
 		break;
 	}
 	case PISCES:{
-		System.out.println("BYTE");
+		JFrame f = new JFrame();
+		f.setVisible(true);
+		f.setSize(500, 500);
+		JPanel p = new JPanel();
+		drumLabelWithImage = createLabelImage("download-3.jpg");
+		p.add(drumLabelWithImage);
+		
+		f.pack();
+		f.add(p);
 		break;
 	}
 	//https://github.com/League-Level1-Student/level1-module0-trygamer/blob/master/src/DrumKit.java
@@ -112,28 +189,66 @@ public void Horos(Zodiac z) {
 	}
 	
 	
-	public Zodiac  Set(int i) {
-		
-		
-		
-	}
+	
 	
 	
 }
 	
 	
 	
-
+public Zodiac Set(int i) {
+	
+	
+		Zodiac z = null;
+		
+		
+		switch (i) {
+		
+		
+		case 0:
+			 z = Zodiac.ARIES;
+		case 1: 
+			z = Zodiac.TAURUS;
+		case 2: 
+			z = Zodiac.GEMINI;
+		case 3:
+			z = Zodiac.CANCER;
+		case 4:
+			z = Zodiac.LEO;
+		case 5:
+			z = Zodiac.VIRGO;
+		case 6 :
+			z = Zodiac.LIBRA;
+		case 7: 
+			z = Zodiac.SCORPIO;
+		case 8:
+			z = Zodiac.SAGITTARIUS;
+		case 9:
+			z = Zodiac.CAPRICORN;
+		case 10:
+			z = Zodiac.AQUARIUS;
+		case 11:
+			z = Zodiac.PISCES;
+		
+		}
+		
+	
+	
+	return z ;
+}
 	
 	
 	
 	
 	// 3. Make a main method to test your method
 
-public static void main(String[] args) {
+public static void main(String[] args) throws Exception {
+	_00_Horoscope h = new _00_Horoscope();
+	
 	String[] options = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
 	int input = JOptionPane.showOptionDialog(null, "Choose a day of the week", "Custom Buttons", 0, -1, null, options,0);
-	
+	Zodiac z1 =h.Set(input);
+	h.Horos(z1);
 	
 
 }
