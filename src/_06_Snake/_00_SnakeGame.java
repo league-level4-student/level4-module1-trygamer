@@ -186,6 +186,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   reset the snake and the food and start the timer
 		//   else, exit the game
 		
+		
 	}
 
 	@Override
@@ -196,6 +197,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//1. update the snake
+		
 snake.update();
 		
 		//2. if the snake is colliding with its own body 
