@@ -33,35 +33,30 @@ public class Snake {
 		return head.getLocation();
 	}
 
-	int nx = 0;
-	int ny = 0;
-	
+ 
 	public void update() {
 		//1. use a switch statement to check on the currentDirection
 		//   of the snake and calculate its next x and y position.
-		int x = head.getLocation().x;
-		int y =head.getLocation().y;
+		
+		Location l =head.getLocation();
 		switch(currentDirection) {
 		
 		case UP:
-			ny = y-1 ;
-		 nx =0;
+			l.y--;
+			
 		  break;
 		case DOWN:
-			ny = y+1 ;
-			nx =0;
+			l.y++;
+			
 			  break;
 		case LEFT:
-			nx = x -1;
-			ny =0;
+			l.x--;
 			  break;
 		case RIGHT:
-			nx =x+1;
-			ny =0;
+			l.x++;
 			  break;
 		default:
-			nx =x+1;
-			ny =0;
+			l.x++;
 			  break;
 		
 		
@@ -81,7 +76,7 @@ public class Snake {
 		//3. set the location of the head to the new location calculated in step 1
 		
 //head.setLocation(
-		update();
+
 		//4. set canMove to true
 		canMove = true;
 		
@@ -130,6 +125,7 @@ public class Snake {
 		int x = head.getLocation().x;
 		int y = head.getLocation().y;
 		if (x > -1 && x < _00_SnakeGame.WINDOW_WIDTH && y > -1 && y < _00_SnakeGame.WINDOW_HEIGHT) {
+			System.out.println("OutOfBounds");
 			return true;
 		}
 
@@ -142,8 +138,11 @@ public class Snake {
 
 		for (int i = 1; i < snake.size(); i++) {
 			if (head.getLocation().x == snake.get(i).getLocation().x
-					&& head.getLocation().x == snake.get(i).getLocation().y) {
+				
+				&& head.getLocation().y == snake.get(i).getLocation().y) {
+				System.out.println("Collision");
 				return true;
+				
 			}
 
 		}

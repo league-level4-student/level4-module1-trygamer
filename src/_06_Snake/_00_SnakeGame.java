@@ -127,20 +127,20 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		// if an arrow key is pressed, set the snake's 
 		// direction accordingly
 		
-		case 38: 
+		case KeyEvent.VK_UP: 
 			d = Direction.UP;
 			break;
-		case 37: 
+		case KeyEvent.VK_LEFT: 
 			d = Direction.LEFT;
 			break;
-		case 39: 
+		case KeyEvent.VK_RIGHT: 
 			d = Direction.RIGHT;
 			break;
 			
-		case 40: 
+		case KeyEvent.VK_DOWN: 
 			d = Direction.DOWN;
 			break;
-		case 32: 
+		case KeyEvent.VK_SPACE: 
 		snake.feed();
 			break;
 		
