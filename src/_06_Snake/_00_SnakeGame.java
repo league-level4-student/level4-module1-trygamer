@@ -28,15 +28,15 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	public static final int WINDOW_SCALE = 50;
 	public static final int WINDOW_WIDTH = WINDOW_SCALE * WIDTH;
 	public static final int WINDOW_HEIGHT = WINDOW_SCALE * HEIGHT;
-
+	static Direction d;
 	private JFrame window;
 	private JPanel panel;
 
-	private Snake snake;
+	private static Snake snake;
 
 	private Timer timer;
 
-	private Location foodLocation;
+	private static Location foodLocation;
 
 	public _00_SnakeGame() {
 		snake = new Snake(new Location(WIDTH / 2, HEIGHT / 2));
@@ -55,7 +55,11 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 				g2.setColor(FOOD_COLOR);
 				g2.drawOval(foodLocation.x * WINDOW_SCALE, foodLocation.y * WINDOW_SCALE, Snake.BODY_SIZE,
 						Snake.BODY_SIZE);
+		
 				snake.draw(g);
+				if
+				snake.get(1).draw(g);
+				
 			}
 		};
 
@@ -88,13 +92,13 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//   of the game. The smaller the number, the faster it goes.
  switch(input) {
  case 0: 
-		timer.setDelay(10);
+		timer.setDelay(100);
 		break;
 	case 1: 
-		timer.setDelay(50);
+		timer.setDelay(500);
 		break;
 	default: 
-		timer.setDelay(100);
+		timer.setDelay(1000);
 		break;
 	}
  
@@ -120,7 +124,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		//1. Use a switch statement on e.getKeyCode()
 		//   to determine which key was pressed.
-		Direction d = null;
+		 d = null;
 		System.out.println(e.getKeyCode());		
 		switch(e.getKeyCode()) {
 		
@@ -134,6 +138,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 			d = Direction.LEFT;
 			break;
 		case KeyEvent.VK_RIGHT: 
+			
 			d = Direction.RIGHT;
 			break;
 			
@@ -143,7 +148,9 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		case KeyEvent.VK_SPACE: 
 		snake.feed();
 			break;
-		
+		default: 
+			
+			d = Direction.STOP;
 		}
 		// if the space key is pressed, call the snake's feed method
 		
@@ -151,11 +158,11 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		
 	}
 
-	private void setFoodLocation() {
+	static void setFoodLocation() {
 		//1. Create a new Location object that is set to a random location
 		Random r = new Random();
-		int y = r.nextInt(WINDOW_HEIGHT);
-		int x = r.nextInt(WINDOW_WIDTH);
+		int y = r.nextInt(HEIGHT);
+		int x = r.nextInt(WIDTH);
 		
 		Location l = new Location(x,y);
 		
@@ -177,6 +184,8 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		
 		//4. if they want to play again
 		if(input == 0) {
+			snake.reset(new Location(WIDTH / 2, HEIGHT / 2));
+			d = Direction.STOP;
 	 startGame();
 		}
 		else {
@@ -206,14 +215,18 @@ snake.update();
 if(snake.isHeadCollidingWithBody()) {
 	gameOver();
 }
+
 if(snake.isOutOfBounds()) {
+	
 	gameOver();
 }
 
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
-
-if(snake.getHeadLocation()==foodLocation) {
+int x =snake.getHeadLocation().x;
+int y = snake.getHeadLocation().y;
+if(x==foodLocation.x&&y==foodLocation.y) {
+	System.out.println("eaten");
 	snake.feed();
 }
 		//4. call panel.repaint();

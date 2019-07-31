@@ -4,28 +4,42 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
+import org.junit.jupiter.params.converter.DefaultArgumentConverter;
+
 public class Snake {
 	public static final Color SNAKE_COLOR = Color.BLUE;
 	public static final int BODY_SIZE = 50;
 
 	private SnakeSegment head;
 	private ArrayList<SnakeSegment> snake;
-
+	int lengthS = 0;
 	private Direction currentDirection;
 
+	//_00_SnakeGame sg = new _00_SnakeGame();
 	private boolean canMove = true;
 
 	public Snake(Location location) {
 		snake = new ArrayList<SnakeSegment>();
 		head = new SnakeSegment(location, BODY_SIZE);
 		snake.add(head);
-
-		currentDirection = Direction.RIGHT;
+		
+			
+		
+		
+		
+		currentDirection =Direction.STOP;
 	}
 
 	public void feed() {
 		// 1. add a new SnakeSegment object to the snake
-		snake.add(new SnakeSegment(snake.get(0).getLocation(), BODY_SIZE));
+		System.out.println(snake.get(0).getLocation());
+		
+		//(currentDirection==Direction.RIGHT  ) {
+		//snake.add(new SnakeSegment(new Location(head.getLocation().x-lengthS ,head.getLocation().y), BODY_SIZE));
+		snake.add(new SnakeSegment(new Location(5 ,5), BODY_SIZE));
+//
+		 lengthS++;
+		_00_SnakeGame.setFoodLocation();
 	}
 
 	public Location getHeadLocation() {
@@ -39,6 +53,7 @@ public class Snake {
 		//   of the snake and calculate its next x and y position.
 		
 		Location l =head.getLocation();
+	
 		switch(currentDirection) {
 		
 		case UP:
@@ -53,15 +68,24 @@ public class Snake {
 			l.x--;
 			  break;
 		case RIGHT:
-			l.x++;
+		
+		l.x++;
 			  break;
-		default:
-			l.x++;
-			  break;
+		case STOP:
+				  l.x--;
+				  l.x++;
+				  break;
 		
 		
 		}
-
+		
+		if( _00_SnakeGame.d != null) {
+			
+		
+				currentDirection = _00_SnakeGame.d;
+		}
+		
+	
 		//2. Iterate through the SnakeSegments in reverse order
 		//2a. Update each snake segment to the location of the segment 
 		//    in front of it.
@@ -124,8 +148,8 @@ public class Snake {
 		// and false otherwise
 		int x = head.getLocation().x;
 		int y = head.getLocation().y;
-		if (x > -1 && x < _00_SnakeGame.WINDOW_WIDTH && y > -1 && y < _00_SnakeGame.WINDOW_HEIGHT) {
-			System.out.println("OutOfBounds");
+		if (x <= -2 || x >= 16|| y <=-2 || y >= 13) {
+			
 			return true;
 		}
 
@@ -135,11 +159,11 @@ public class Snake {
 	public boolean isHeadCollidingWithBody() {
 		// 1. complete the method so it returns true if the head is located
 		// in the same location as any other body segment
-
-		for (int i = 1; i < snake.size(); i++) {
-			if (head.getLocation().x == snake.get(i).getLocation().x
-				
-				&& head.getLocation().y == snake.get(i).getLocation().y) {
+		System.out.println(snake.size());
+		for (int i = 2; i < snake.size(); i++) {
+			System.out.println(snake.size());
+			System.out.println("HCWB");
+			if (head.getLocation().x == snake.get(i).getLocation().x && head.getLocation().y == snake.get(i).getLocation().y) {
 				System.out.println("Collision");
 				return true;
 				
