@@ -87,16 +87,13 @@ public class Snake {
 		
 		case UP:
 			l.y--;
-			if(snake.get(1).getLocation().x-1==l.x) {
-				for(int i =1; i< snake.size();i++) {
-					snake.get(i).setLocation(new Location(snake.get(i-1), y));
-					
-				}
-				
-				
-			}
 			
-		  break;
+				break;
+				
+				
+		
+			
+		  
 		case DOWN:
 			l.y++;
 			
@@ -122,7 +119,7 @@ public class Snake {
 		//2. Iterate through the SnakeSegments in reverse order
 		//2a. Update each snake segment to the location of the segment 
 		//    in front of it.
-		
+		/*
 		for(int i=1; i<snake.size(); i++) {
 		
 			if(currentDirection==Direction.RIGHT) {
@@ -140,13 +137,25 @@ public class Snake {
 			
 		}
 		
+		*/
+		for(int i=snake.size()-1; i>=1;i--) {
+			
+			
+				
+			
+		snake.get(i).setLocation(new Location(snake.get(i-1).getLocation().x,snake.get(i-1).getLocation().y));
+
+			
+			
+			
+		}
 		
 		//3. set the location of the head to the new location calculated in step 1
 		
 //head.setLocation(
 
 		//4. set canMove to true
-		
+		canMove= true;
 		
 	}
 
