@@ -57,8 +57,8 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 						Snake.BODY_SIZE);
 		
 				snake.draw(g);
-				if
-				snake.get(1).draw(g);
+				
+				
 				
 			}
 		};
@@ -125,7 +125,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		//1. Use a switch statement on e.getKeyCode()
 		//   to determine which key was pressed.
 		 d = null;
-		System.out.println(e.getKeyCode());		
+		
 		switch(e.getKeyCode()) {
 		
 		// if an arrow key is pressed, set the snake's 
@@ -133,17 +133,20 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		
 		case KeyEvent.VK_UP: 
 			d = Direction.UP;
+			snake.setDirection(d);
 			break;
 		case KeyEvent.VK_LEFT: 
 			d = Direction.LEFT;
+			snake.setDirection(d);
 			break;
 		case KeyEvent.VK_RIGHT: 
-			
 			d = Direction.RIGHT;
+			snake.setDirection(d);
 			break;
 			
 		case KeyEvent.VK_DOWN: 
 			d = Direction.DOWN;
+			snake.setDirection(d);
 			break;
 		case KeyEvent.VK_SPACE: 
 		snake.feed();
@@ -226,9 +229,10 @@ if(snake.isOutOfBounds()) {
 int x =snake.getHeadLocation().x;
 int y = snake.getHeadLocation().y;
 if(x==foodLocation.x&&y==foodLocation.y) {
-	System.out.println("eaten");
+
 	snake.feed();
 }
+
 		//4. call panel.repaint();
 panel.repaint();
 
