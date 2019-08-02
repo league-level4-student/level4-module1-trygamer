@@ -80,7 +80,7 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 	public void startGame() {
 		//1. Save the instructions for the game in the following string variable.
-		String instructions = "eat as miny ticks as possible";
+		String instructions = "eat as miny ticks as possible Also you must get eat two fruits to get the first segment ";
 		
 		String[] options = new String[] { "Expert", "Moderate", "Beginner" };
 		int input = JOptionPane.showOptionDialog(null, instructions, "Snake", 0, -1, null, options, 0);
