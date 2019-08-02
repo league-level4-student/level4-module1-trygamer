@@ -229,6 +229,7 @@ public class Snake {
 		
 		for (int i = 2; i < snake.size(); i++) {
 			
+			
 			if (head.getLocation().x == snake.get(i).getLocation().x && head.getLocation().y == snake.get(i).getLocation().y) {
 				
 				return true;
